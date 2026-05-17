@@ -1,14 +1,13 @@
 @import 'tailwindcss';
 
-
-.wrapper {
-    @apply min-h-screen bg-zinc-300;
+@theme {
+    --color-primary: #ff0000;
+    --color-dark-bg: #131313;
+    --color-dark-gray-bg: #3A3939;
+    --color-primary: #00F5FF;
+    --color-tertiary: #FFDB3F;
 }
 
-.header {
-    @apply bg-white p-4 rounded-md;
-}
-
-.main-wrapper {
-    @apply grid grid-cols-3;
+.btn {
+    @apply py-2 px-4 rounded-md;
 }
