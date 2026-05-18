@@ -1,26 +1,30 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import InputForm from "../../components/InputForm";
+import ButtonForm from "../../components/ButtonForm";
 
 const LoginPage = () => {
   return (
     <>
-    <div className="">
-        <h1 className="text-center">Login</h1>
+      <div className="flex flex-col gap-8">
+        <h1 className="text-center text-2xl font-bold">Login</h1>
 
-        <form className="mt-8 flex flex-col gap-4" action="">
-            <div className="flex flex-col gap-2">
-                <label htmlFor="email">Email</label>
-                <input className="border border-primary py-3 px-6" type="email" name="email" id="email" />
-            </div>
-            <div className="flex flex-col gap-2">
-                <label htmlFor="password">Password</label>
-                <input className="border border-primary py-3 px-6" type="password" name="password" id="password" />
-            </div>
-            <button className="mt-8 btn bg-primary" type="submit">Login</button>
-            <p className="text-center">Don't have an account? <Link to="/register">Register</Link></p>
+        <form className="flex flex-col gap-4" action="">
+          <InputForm label="Email" type="email" name="email" />
+          <InputForm label="Password" type="password" name="password" />
+
+          <div className="mt-4 md:mt-10 flex flex-col gap-4">
+            <ButtonForm label="Login" />
+            <p className="text-center">
+              Don't have an account?
+              <Link to="/register" className="hover:text-cyan-500">
+                Register
+              </Link>
+            </p>
+          </div>
         </form>
-    </div>
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default LoginPage
+export default LoginPage;
