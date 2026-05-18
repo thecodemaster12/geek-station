@@ -5,8 +5,8 @@ import ButtonForm from "../../components/ButtonForm";
 const RegisterPage = () => {
   return (
     <>
-      <div className="flex flex-col gap-8">
-        <h1 className="text-center text-2xl font-bold">Register</h1>
+      <div className="flex flex-col gap-4">
+        <h1 className="text-center text-xl font-bold">Register</h1>
 
         <form className="flex flex-col gap-4" action="">
           <InputForm label="Username" type="text" name="username" />
@@ -16,7 +16,7 @@ const RegisterPage = () => {
           <div className="mt-4 md:mt-10 flex flex-col gap-4">
             <ButtonForm label="Register" />
             <p className="text-center">
-              Already have an account?
+              Already have an account? {" "}
               <Link to="/login" className="hover:text-cyan-500">
                 Login
               </Link>
