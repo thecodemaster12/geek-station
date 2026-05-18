@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import InputForm from "../../components/InputForm";
 import ButtonForm from "../../components/ButtonForm";
 import { useState } from "react";
+import axios from "axios";
 
 const RegisterPage = () => {
   const [formData, setFormData] = useState({
@@ -45,21 +46,61 @@ const RegisterPage = () => {
     });
 
     // Remove error while typing
-    setErrors({
-      ...errors,
+    setErrors((prev) => ({
+      ...prev,
       [e.target.name]: "",
-    });
+    }));
   };
 
-  const handleSubmit = (e) => {
+  const isEmailTaken = async (email) => {
+    try {
+      const response = await axios.get(
+        `http://localhost:3001/users?email=${email}`,
+      );
+
+      return response.data.length > 0;
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
+  };
+
+  const registerUser = async (formData) => {
+    try {
+      const emailTaken = await isEmailTaken(formData.email);
+
+      if (emailTaken) {
+        setErrors({
+          email: "Email is already taken",
+        });
+
+        return;
+      }
+
+      await axios.post("http://localhost:3001/users", formData);
+
+      window.location.href = "/login";
+    } catch (error) {
+      console.error(error);
+
+      setErrors({
+        general: "Something went wrong",
+      });
+    }
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const isValid = validate();
 
     if (!isValid) return;
 
+    await registerUser(formData);
+
     console.log("Form Submitted", formData);
   };
+
   return (
     <>
       <div className="flex flex-col gap-4">
@@ -84,7 +125,6 @@ const RegisterPage = () => {
           {errors.email && <p className="text-red-500">{errors.email}</p>}
           <InputForm
             onChange={handleChange}
-            onCha
             value={formData.password}
             label="Password"
             type="password"
