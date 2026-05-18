@@ -3,7 +3,17 @@ import BlogCard from "../components/BlogCard"
 const HomePage = () => {
   return (
     <>
-      <BlogCard />
+      <div className="space-y-4">
+        <BlogCard />
+        <BlogCard />
+        <BlogCard />
+        <BlogCard />
+        <BlogCard />
+        <BlogCard />
+        <BlogCard />
+        <BlogCard />
+        <BlogCard />
+      </div>
     </>
   )
 }

@@ -56,9 +56,9 @@ const MainLayout = () => {
           </button>
         </div>
       </aside>
-      <div>
+      <div className="flex flex-col min-h-screen">
         {/* HEADER */}
-        <header className="p-4 border-b border-dark-gray flex justify-between items-center gap-4">
+        <header className="sticky top-0 z-40 bg-dark shrink-0 h-20 border-b border-dark-gray flex justify-between items-center gap-4">
           <div className=" flex items-center gap-4">
             <RiMenu5Fill
               onClick={toggleSidebar}
@@ -79,20 +79,6 @@ const MainLayout = () => {
               />
               <TbTerminal2 className="absolute top-1/2 right-3 -translate-y-1/2 text-xl" />
             </div>
-
-            {/* <nav>
-              <ul className="flex gap-4">
-                <li>
-                  <a href="#">Home</a>
-                </li>
-                <li>
-                  <a href="#">About</a>
-                </li>
-                <li>
-                  <a href="#">Contact</a>
-                </li>
-              </ul>
-            </nav> */}
           </div>
 
           <div className="flex shrink-0 gap-4">
@@ -102,9 +88,9 @@ const MainLayout = () => {
         </header>
 
         {/* BODY */}
-        <div className="flex gap-4">
+        <div className="flex flex-1 gap-4 mt-4 container mx-auto items-start">
           {/* LEFT SIDEBAR */}
-          <aside className="flex-1 hidden md:block bg-dark-gray">
+          <aside className="w-[250px] h-[calc(100vh-80px)] sticky top-[80px] overflow-y-auto hidden md:block bg-dark-gray">
             <nav>
               <ul>
                 <li>
@@ -115,19 +101,42 @@ const MainLayout = () => {
           </aside>
 
           {/* MAIN CONTENT */}
-          <main className="flex-2 bg-dark-gray p-4">
-            <div className="mb-4">
+          <main className="flex-1">
+            <div className="sticky  p-4 top-[80px] mb-4 bg-dark">
               <ul className="flex justify-center gap-4">
-                <li><a className="text-primary py-2 px-4 border-b border-primary" href="#">Latest</a></li>
-                <li><a className="text-white hover:text-primary hover:border-b hover:border-primary py-2 px-4 transition duration-300" href="#">Top</a></li>
-                <li><a className="text-white hover:text-primary hover:border-b hover:border-primary py-2 px-4 transition duration-300" href="#">Your Picks</a></li>
+                <li>
+                  <a
+                    className="text-primary py-2 px-4 border-b border-primary"
+                    href="#"
+                  >
+                    Latest
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="text-white hover:text-primary hover:border-b hover:border-primary py-2 px-4 transition duration-300"
+                    href="#"
+                  >
+                    Top
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="text-white hover:text-primary hover:border-b hover:border-primary py-2 px-4 transition duration-300"
+                    href="#"
+                  >
+                    Your Picks
+                  </a>
+                </li>
               </ul>
             </div>
             <Outlet />
           </main>
 
           {/* RIGHT SIDEBAR */}
-          <aside className="flex-1 hidden lg:block bg-dark-gray">Right Sidebar</aside>
+          <aside className="w-[250px] h-[calc(100vh-80px)] sticky top-[80px] overflow-y-auto hidden lg:block bg-dark-gray">
+            Right Sidebar
+          </aside>
         </div>
       </div>
     </div>

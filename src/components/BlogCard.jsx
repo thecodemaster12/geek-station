@@ -1,7 +1,7 @@
 const BlogCard = () => {
   return (
     <>
-        <div className="p-4 bg-gray-400 rounded-md">
+        <div className="p-4 border border-dark-gray rounded-md">
             <div className="">
                 user info
             </div>
