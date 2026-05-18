@@ -15,5 +15,8 @@
     { "id": "12", "author_id": "4", "title": "Ancient Ruins", "content": "The crumbling stones told of a civilization long gone. We touched the weathered carvings and wondered about the people who once called this place home." },
     { "id": "13", "author_id": "2", "title": "Autumn Gold", "content": "The leaves had turned into brilliant shades of orange, red, and gold. Walking through the park, the crisp air and the crunch of leaves underfoot were delightful." },
     { "id": "14", "author_id": "3", "title": "Winter Silence", "content": "The world was blanketed in white, and a heavy silence hung in the air. Everything was still, as if the earth was taking a deep breath before spring." }
+  ],
+  "users": [
+    { "user_id": "1", "name": "John Doe", "email": "test@me.com", "password": "123456" }
   ]
 }

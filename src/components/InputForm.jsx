@@ -1,4 +1,5 @@
-const InputForm = ({label, placeholder, type, name}) => {
+// 1. Add onChange to the destructured arguments
+const InputForm = ({ label, placeholder, type, name, value, onChange }) => {
   return (
     <div className="flex flex-col gap-2">
       <label className="font-jetmono text-sm" htmlFor={name}>{label}</label>
@@ -8,6 +9,8 @@ const InputForm = ({label, placeholder, type, name}) => {
         name={name}
         placeholder={placeholder}
         id={name}
+        value={value}
+        onChange={onChange} // 2. Bind it to the native input element
       />
     </div>
   );
