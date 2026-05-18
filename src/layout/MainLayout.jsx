@@ -1,81 +1,126 @@
 import { Outlet } from "react-router-dom";
-import { IoSearch } from "react-icons/io5";
+import { RiMenu5Fill } from "react-icons/ri";
+import { TbTerminal2 } from "react-icons/tb";
+import { IoClose } from "react-icons/io5";
+import { useState } from "react";
 
 const MainLayout = () => {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setSidebarOpen(!sidebarOpen);
+  };
   return (
-    <div className="h-screen bg-dark-bg text-white overflow-hidden">
-      <div className="container mx-auto h-full flex flex-col">
+    <div className="min-h-screen">
+      {/* MOBILE SIDEBAR */}
+      <aside
+        className={`flex flex-col gap-6 fixed top-0 left-0 z-50 p-4 h-full w-[280px] bg-dark border-r border-dark-gray transform transition-transform duration-300 ease-in-out md:hidden ${
+          sidebarOpen ? "translate-x-0" : "-translate-x-full"
+        }`}
+      >
+        <div className="flex justify-end">
+          <IoClose
+            className="text-2xl cursor-pointer hover:text-primary"
+            onClick={toggleSidebar}
+          />
+        </div>
+
+        <div className="relative">
+          <input
+            className="border border-dark-gray py-3 pl-4 pr-10 rounded-md w-full focus:outline-0 focus:border-primary"
+            type="text"
+            placeholder="Search..."
+          />
+          <TbTerminal2 className="absolute top-1/2 right-3 -translate-y-1/2 text-xl" />
+        </div>
+
+        <nav className="p-4">
+          <ul className="space-y-4">
+            <li>
+              <a href="#">Home</a>
+            </li>
+
+            <li>
+              <a href="#">Articles</a>
+            </li>
+
+            <li>
+              <a href="#">Categories</a>
+            </li>
+          </ul>
+        </nav>
+
+        <div className="p-4 border-t border-dark-gray mt-auto">
+          <button className="btn w-full bg-primary text-dark hover:bg-dark hover:text-primary">
+            Login
+          </button>
+        </div>
+      </aside>
+      <div>
         {/* HEADER */}
-        <header className="bg-dark-gray-bg p-4 rounded-md flex items-center mb-4 shrink-0">
-          <h1 className="text-primary shrink-0 text-2xl font-bold">
-            Geek Station
-          </h1>
-
-          <div className="flex flex-1 items-center justify-center gap-6 px-6">
-            <div className="relative flex-1 max-w-md">
-              <input
-                type="text"
-                className="bg-dark-bg px-4 py-2 rounded-md border border-gray-600 w-full focus:outline-none focus:border-primary"
-                placeholder="Search..."
-              />
-
-              <IoSearch className="absolute right-3 top-1/2 -translate-y-1/2" />
-            </div>
-
-            <nav>
-              <ul className="flex items-center gap-6">
-                <li>
-                  <a className="hover:text-primary transition" href="#">
-                    Home
-                  </a>
-                </li>
-
-                <li>
-                  <a className="hover:text-primary transition" href="#">
-                    About
-                  </a>
-                </li>
-
-                <li>
-                  <a className="hover:text-primary transition" href="#">
-                    Contact
-                  </a>
-                </li>
-              </ul>
-            </nav>
+        <header className="p-4 border-b border-dark-gray flex justify-between items-center gap-4">
+          <div className=" flex items-center gap-4">
+            <RiMenu5Fill
+              onClick={toggleSidebar}
+              className="shrink-0 text-2xl md:hidden cursor-pointer hover:text-primary transition duration-300"
+            />
+            <h1 className="shrink-0 font-bold text-2xl text-primary select-none">
+              {" "}
+              Geek Station
+            </h1>
           </div>
 
-          <div className="flex shrink-0 items-center gap-2">
-            <button className="btn bg-primary text-white">Login</button>
+          <div className="flex grow items-center gap-4">
+            <div className="relative w-[70%] mx-auto hidden md:block">
+              <input
+                className="border border-dark-gray py-3 pl-4 pr-10 rounded-md w-full focus:outline-0 focus:border-primary"
+                type="text"
+                placeholder="Search..."
+              />
+              <TbTerminal2 className="absolute top-1/2 right-3 -translate-y-1/2 text-xl" />
+            </div>
 
-            <button className="btn bg-primary text-white">Sign Up</button>
+            {/* <nav>
+              <ul className="flex gap-4">
+                <li>
+                  <a href="#">Home</a>
+                </li>
+                <li>
+                  <a href="#">About</a>
+                </li>
+                <li>
+                  <a href="#">Contact</a>
+                </li>
+              </ul>
+            </nav> */}
+          </div>
+
+          <div className="flex shrink-0 gap-4">
+            <button className="btn bg-primary">Login</button>
+            <button className="btn bg-primary">Sign Up</button>
           </div>
         </header>
 
         {/* BODY */}
-        <div className="grid grid-cols-[260px_1fr_260px] gap-4 flex-1 min-h-0">
+        <div className="flex gap-4">
           {/* LEFT SIDEBAR */}
-          <aside className="bg-dark-gray-bg rounded-md overflow-y-auto p-4">
+          <aside className="flex-1 hidden md:block bg-dark-gray">
             <nav>
-              <ul className="space-y-3">
+              <ul>
                 <li>
-                  <a href="#" className="block hover:text-primary">
-                    Sidebar Link
-                  </a>
+                  <a href="#">Sidebar Link</a>
                 </li>
               </ul>
             </nav>
           </aside>
 
           {/* MAIN CONTENT */}
-          <main className="bg-dark-gray-bg rounded-md overflow-y-auto p-4">
+          <main className="flex-2 bg-dark-gray">
             <Outlet />
           </main>
 
           {/* RIGHT SIDEBAR */}
-          <aside className="bg-dark-gray-bg rounded-md overflow-y-auto p-4">
-            Right Sidebar
-          </aside>
+          <aside className="flex-1 hidden lg:block bg-dark-gray">Right Sidebar</aside>
         </div>
       </div>
     </div>
