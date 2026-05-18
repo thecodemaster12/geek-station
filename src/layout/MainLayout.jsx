@@ -88,9 +88,14 @@ const MainLayout = () => {
             {getUser() ? (
                 <button className="btn bg-red-500" onClick={logoutUser}>Logout</button>
             ) : (
-              <Link to="/login" className="btn bg-primary">
-                Login
-              </Link>
+              <>              
+                <Link to="/login" className="btn bg-primary">
+                  Login
+                </Link>
+                <Link to="/register" className="btn bg-primary">
+                  Register
+                </Link>
+              </>
             )}
             {/* <Link to="/login" className="btn bg-primary">Login</Link>
             <Link to="/register" className="btn bg-primary">Sign Up</Link> */}

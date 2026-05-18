@@ -5,7 +5,6 @@ import { useState } from "react";
 import axios from "axios";
 
 const LoginPage = () => {
-
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -24,8 +23,7 @@ const LoginPage = () => {
     // Password validation
     if (formData.password.trim() === "") {
       newErrors.password = "Password is required";
-    }
-    else if (formData.password.length < 6) {
+    } else if (formData.password.length < 6) {
       newErrors.password = "Password must be at least 6 characters";
     }
 
@@ -49,13 +47,31 @@ const LoginPage = () => {
   };
 
   const userLogin = async (formData) => {
-    const users = await axios.get('http://localhost:3001/users/').then(res => res.data)
-    const user = users.find((user) => user.email === formData.email && user.password === formData.password)
-    if (user) {
-      localStorage.setItem('user', JSON.stringify(user))
-      window.location.href = '/'
+    try {
+      const response = await axios.get("http://localhost:3001/users");
+
+      const user = response.data.find(
+        (user) =>
+          user.email === formData.email && user.password === formData.password,
+      );
+
+      if (user) {
+        localStorage.setItem("user", JSON.stringify(user));
+
+        window.location.href = "/";
+      } else {
+        setErrors({
+          general: "Invalid email or password",
+        });
+      }
+    } catch (error) {
+      console.error(error);
+
+      setErrors({
+        general: "Something went wrong",
+      });
     }
-  }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -63,8 +79,8 @@ const LoginPage = () => {
     const isValid = validate();
 
     if (!isValid) return;
-    
-    userLogin(formData)
+
+    userLogin(formData);
   };
 
   return (
@@ -90,6 +106,10 @@ const LoginPage = () => {
             name="password"
           />
           {errors.password && <p className="text-red-500">{errors.password}</p>}
+
+          {errors.general && (
+            <p className="text-red-500 text-center">{errors.general}</p>
+          )}
 
           <div className="mt-4 md:mt-10 flex flex-col gap-4">
             <ButtonForm label="Login" />

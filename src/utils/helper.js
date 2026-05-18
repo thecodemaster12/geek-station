@@ -5,4 +5,5 @@ export const getUser = () => {
 
 export const logoutUser = () => {
     localStorage.removeItem("user");
+    window.location.href = "/";
 };
