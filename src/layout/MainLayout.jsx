@@ -58,7 +58,7 @@ const MainLayout = () => {
       </aside>
       <div className="flex flex-col min-h-screen">
         {/* HEADER */}
-        <header className="sticky top-0 z-40 bg-dark shrink-0 h-20 border-b border-dark-gray flex justify-between items-center gap-4">
+        <header className="sticky top-0 z-40 px-8 bg-dark shrink-0 h-20 border-b border-dark-gray flex justify-between items-center gap-4">
           <div className=" flex items-center gap-4">
             <RiMenu5Fill
               onClick={toggleSidebar}
@@ -88,7 +88,7 @@ const MainLayout = () => {
         </header>
 
         {/* BODY */}
-        <div className="flex flex-1 gap-4 mt-4 container mx-auto items-start">
+        <div className="flex flex-1 gap-4 container mx-auto items-start">
           {/* LEFT SIDEBAR */}
           <aside className="w-[250px] h-[calc(100vh-80px)] sticky top-[80px] overflow-y-auto hidden md:block bg-dark-gray">
             <nav>

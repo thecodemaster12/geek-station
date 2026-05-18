@@ -1,0 +1,7 @@
+{
+  "$schema": "./node_modules/json-server/schema.json",
+  "posts": [
+    { "id": "1", "author_id": "1", "title": "cup", "content": "fierce poem hat brought massage ten design donkey safety strong pen gravity gold sky driven rubber time level sold told visitor feet smoke barnlorem ipsum" },
+    { "id": "2", "author_id": "1", "title": "image", "content": "herd molecular eight cheese road shall fairly wood load land rays rose fine aboard human at smooth hunter usually mostly act percent continent broadlorem ipsum" }
+  ]
+}
