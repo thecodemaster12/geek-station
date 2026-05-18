@@ -115,7 +115,14 @@ const MainLayout = () => {
           </aside>
 
           {/* MAIN CONTENT */}
-          <main className="flex-2 bg-dark-gray">
+          <main className="flex-2 bg-dark-gray p-4">
+            <div className="mb-4">
+              <ul className="flex justify-center gap-4">
+                <li><a className="text-primary py-2 px-4 border-b border-primary" href="#">Latest</a></li>
+                <li><a className="text-white hover:text-primary hover:border-b hover:border-primary py-2 px-4 transition duration-300" href="#">Top</a></li>
+                <li><a className="text-white hover:text-primary hover:border-b hover:border-primary py-2 px-4 transition duration-300" href="#">Your Picks</a></li>
+              </ul>
+            </div>
             <Outlet />
           </main>
 

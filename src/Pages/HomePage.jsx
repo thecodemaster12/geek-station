@@ -1,6 +1,10 @@
+import BlogCard from "../components/BlogCard"
+
 const HomePage = () => {
   return (
-    <>HomePage</>
+    <>
+      <BlogCard />
+    </>
   )
 }
 
