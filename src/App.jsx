@@ -2,6 +2,9 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import MainLayout from "./layout/MainLayout"
 import HomePage from "./Pages/HomePage"
 import PostDetailsPage from "./Pages/PostDetailsPage"
+import AuthLayout from "./layout/AuthLayout"
+import LoginPage from "./Pages/Auth/LoginPage"
+import RegisterPage from "./Pages/Auth/RegisterPage"
 
 const App = () => {
   return (
@@ -12,6 +15,13 @@ const App = () => {
         <Route path="/" element={<HomePage />} />
         <Route path="/posts/:id" element={<PostDetailsPage />} />
         </Route>
+
+        <Route element={<AuthLayout />}>
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+        </Route>
+
+        <Route path="*" element={<h1>404</h1>} />
       </Routes>
     </BrowserRouter>
     </>

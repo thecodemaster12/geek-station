@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import { RiMenu5Fill } from "react-icons/ri";
 import { TbTerminal2 } from "react-icons/tb";
 import { IoClose } from "react-icons/io5";
@@ -64,10 +64,12 @@ const MainLayout = () => {
               onClick={toggleSidebar}
               className="shrink-0 text-2xl md:hidden cursor-pointer hover:text-primary transition duration-300"
             />
-            <h1 className="shrink-0 font-bold text-2xl text-primary select-none">
-              {" "}
-              Geek Station
-            </h1>
+            <Link to="/">            
+              <h1 className="shrink-0 font-bold text-2xl text-primary select-none">
+                {" "}
+                Geek Station
+              </h1>
+            </Link>
           </div>
 
           <div className="flex grow items-center gap-4">
@@ -82,8 +84,8 @@ const MainLayout = () => {
           </div>
 
           <div className="flex shrink-0 gap-4">
-            <button className="btn bg-primary">Login</button>
-            <button className="btn bg-primary">Sign Up</button>
+            <Link to="/login" className="btn bg-primary">Login</Link>
+            <Link to="/register" className="btn bg-primary">Sign Up</Link>
           </div>
         </header>
 

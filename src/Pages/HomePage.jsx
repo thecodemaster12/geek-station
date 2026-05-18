@@ -26,7 +26,7 @@ const HomePage = () => {
   }
   return (
     <>
-      <div className="space-y-4">
+      <div className="space-y-4 p-4">
         {posts.map(post => (
           <BlogCard key={post.id} post={post} />
         ))}

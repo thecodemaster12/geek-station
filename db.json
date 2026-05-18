@@ -2,6 +2,18 @@
   "$schema": "./node_modules/json-server/schema.json",
   "posts": [
     { "id": "1", "author_id": "1", "title": "cup", "content": "fierce poem hat brought massage ten design donkey safety strong pen gravity gold sky driven rubber time level sold told visitor feet smoke barnlorem ipsum" },
-    { "id": "2", "author_id": "1", "title": "image", "content": "herd molecular eight cheese road shall fairly wood load land rays rose fine aboard human at smooth hunter usually mostly act percent continent broadlorem ipsum" }
+    { "id": "2", "author_id": "1", "title": "image", "content": "herd molecular eight cheese road shall fairly wood load land rays rose fine aboard human at smooth hunter usually mostly act percent continent broadlorem ipsum" },
+    { "id": "3", "author_id": "2", "title": "Adventure in the Mountains", "content": "Climbing the steep slopes was a challenge, but the view from the top was worth every step. The air was thin and cold, but the sun felt warm on our faces." },
+    { "id": "4", "author_id": "1", "title": "The Secret Garden", "content": "Hidden behind the old stone wall was a paradise of blooming flowers and chirping birds. It felt like stepping into another world, away from the noise of the city." },
+    { "id": "5", "author_id": "3", "title": "Urban Exploration", "content": "Walking through the abandoned warehouse, we found relics of a bygone era. The dust danced in the sunbeams, and every corner held a story waiting to be told." },
+    { "id": "6", "author_id": "2", "title": "Ocean Breeze", "content": "The sound of the waves crashing against the shore was a soothing melody. We spent the day collecting seashells and watching the horizon change colors." },
+    { "id": "7", "author_id": "1", "title": "Night Sky Wonders", "content": "Under the canopy of stars, the world seemed infinite. We pointed out constellations and made wishes on shooting stars that streaked across the dark velvet sky." },
+    { "id": "8", "author_id": "4", "title": "Desert Mirage", "content": "The heat was intense, and the sand stretched as far as the eye could see. Every now and then, the shimmering horizon played tricks on our minds." },
+    { "id": "9", "author_id": "2", "title": "Forest Whispers", "content": "The tall trees swayed in the wind, their leaves rustling softly. It felt as though the forest itself was whispering secrets to those who would listen." },
+    { "id": "10", "author_id": "3", "title": "City Lights", "content": "From the rooftop, the city looked like a circuit board of glowing lights and moving cars. The energy was palpable, even from this high up." },
+    { "id": "11", "author_id": "1", "title": "Morning Dew", "content": "The grass was wet with morning dew, and the air smelled fresh and clean. The world was just waking up, and everything felt full of promise." },
+    { "id": "12", "author_id": "4", "title": "Ancient Ruins", "content": "The crumbling stones told of a civilization long gone. We touched the weathered carvings and wondered about the people who once called this place home." },
+    { "id": "13", "author_id": "2", "title": "Autumn Gold", "content": "The leaves had turned into brilliant shades of orange, red, and gold. Walking through the park, the crisp air and the crunch of leaves underfoot were delightful." },
+    { "id": "14", "author_id": "3", "title": "Winter Silence", "content": "The world was blanketed in white, and a heavy silence hung in the air. Everything was still, as if the earth was taking a deep breath before spring." }
   ]
 }
