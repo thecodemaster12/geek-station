@@ -3,6 +3,7 @@ import { RiMenu5Fill } from "react-icons/ri";
 import { TbTerminal2 } from "react-icons/tb";
 import { IoClose } from "react-icons/io5";
 import { useState } from "react";
+import { getUser, logoutUser } from "../utils/helper";
 
 const MainLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -84,8 +85,15 @@ const MainLayout = () => {
           </div>
 
           <div className="flex shrink-0 gap-4">
-            <Link to="/login" className="btn bg-primary">Login</Link>
-            <Link to="/register" className="btn bg-primary">Sign Up</Link>
+            {getUser() ? (
+                <button className="btn bg-red-500" onClick={logoutUser}>Logout</button>
+            ) : (
+              <Link to="/login" className="btn bg-primary">
+                Login
+              </Link>
+            )}
+            {/* <Link to="/login" className="btn bg-primary">Login</Link>
+            <Link to="/register" className="btn bg-primary">Sign Up</Link> */}
           </div>
         </header>
 

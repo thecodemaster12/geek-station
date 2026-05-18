@@ -17,6 +17,6 @@
     { "id": "14", "author_id": "3", "title": "Winter Silence", "content": "The world was blanketed in white, and a heavy silence hung in the air. Everything was still, as if the earth was taking a deep breath before spring." }
   ],
   "users": [
-    { "user_id": "1", "name": "John Doe", "email": "test@me.com", "password": "123456" }
+    { "id": "1", "name": "John Doe", "email": "test@me.com", "password": "123456" }
   ]
 }

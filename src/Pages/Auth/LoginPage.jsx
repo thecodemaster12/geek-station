@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import InputForm from "../../components/InputForm";
 import ButtonForm from "../../components/ButtonForm";
 import { useState } from "react";
+import axios from "axios";
 
 const LoginPage = () => {
 
@@ -47,14 +48,23 @@ const LoginPage = () => {
     });
   };
 
+  const userLogin = async (formData) => {
+    const users = await axios.get('http://localhost:3001/users/').then(res => res.data)
+    const user = users.find((user) => user.email === formData.email && user.password === formData.password)
+    if (user) {
+      localStorage.setItem('user', JSON.stringify(user))
+      window.location.href = '/'
+    }
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const isValid = validate();
 
     if (!isValid) return;
-
-    console.log("Form Submitted", formData);
+    
+    userLogin(formData)
   };
 
   return (
