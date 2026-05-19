@@ -5,6 +5,7 @@ import PostDetailsPage from "./Pages/PostDetailsPage"
 import AuthLayout from "./layout/AuthLayout"
 import LoginPage from "./Pages/Auth/LoginPage"
 import RegisterPage from "./Pages/Auth/RegisterPage"
+import CreatePostPage from "./Pages/CreatePostPage"
 
 const App = () => {
   return (
@@ -20,6 +21,8 @@ const App = () => {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
         </Route>
+
+        <Route path="/create-post" element={<CreatePostPage />} />
 
         <Route path="*" element={<h1>404</h1>} />
       </Routes>

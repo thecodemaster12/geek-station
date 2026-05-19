@@ -65,7 +65,7 @@ const MainLayout = () => {
               onClick={toggleSidebar}
               className="shrink-0 text-2xl md:hidden cursor-pointer hover:text-primary transition duration-300"
             />
-            <Link to="/">            
+            <Link to="/">
               <h1 className="shrink-0 font-bold text-2xl text-primary select-none">
                 {" "}
                 Geek Station
@@ -86,9 +86,11 @@ const MainLayout = () => {
 
           <div className="flex shrink-0 gap-4">
             {getUser() ? (
-                <button className="btn bg-red-500" onClick={logoutUser}>Logout</button>
+              <button className="btn bg-red-500" onClick={logoutUser}>
+                Logout
+              </button>
             ) : (
-              <>              
+              <>
                 <Link to="/login" className="btn bg-primary">
                   Login
                 </Link>
@@ -97,8 +99,6 @@ const MainLayout = () => {
                 </Link>
               </>
             )}
-            {/* <Link to="/login" className="btn bg-primary">Login</Link>
-            <Link to="/register" className="btn bg-primary">Sign Up</Link> */}
           </div>
         </header>
 
@@ -106,13 +106,16 @@ const MainLayout = () => {
         <div className="flex flex-1 gap-4 container mx-auto items-start">
           {/* LEFT SIDEBAR */}
           <aside className="w-[250px] h-[calc(100vh-80px)] sticky top-[80px] overflow-y-auto hidden md:block bg-dark-gray">
-            <nav>
+            <nav className="p-4">
+              {getUser() ? 
+              <>
               <ul>
-                <li>
-                  <a href="#">Sidebar Link</a>
-                </li>
+                <li><Link to="/profile">Profile</Link></li>
+                <li><Link to="/create-post">Create Post</Link></li>
               </ul>
-            </nav>
+              </> : 
+              <>NO</>}
+              </nav>
           </aside>
 
           {/* MAIN CONTENT */}
