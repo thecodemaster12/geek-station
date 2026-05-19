@@ -27,7 +27,10 @@ const PostDetailsPage = () => {
       <h1 className="text-4xl font-bold text-primary">{post.title}</h1>
       <div className="text-sm text-tertiary">Posted by User • Post ID: {id}</div>
       <hr className="border-dark-gray" />
-      <p className="text-lg leading-relaxed text-gray-200">{post.content}</p>
+      <div 
+        className="prose prose-invert lg:prose-xl max-w-none text-gray-200"
+        dangerouslySetInnerHTML={{ __html: post.content }} 
+      />
     </div>
   );
 };

@@ -10,10 +10,11 @@ We installed three core packages:
 - `@tiptap/react`: The React integration for Tiptap.
 - `@tiptap/pm`: ProseMirror (the underlying engine).
 - `@tiptap/starter-kit`: A bundle of standard extensions (Bold, Italic, Headings, Lists, etc.).
+- `@tiptap/extension-text-align`: Extension for aligning text (Left, Center, Right, Justify).
 
-**Command used:**
+**Commands used:**
 ```bash
-npm install @tiptap/react @tiptap/pm @tiptap/starter-kit
+npm install @tiptap/react @tiptap/pm @tiptap/starter-kit @tiptap/extension-text-align
 ```
 
 ---
@@ -68,7 +69,24 @@ The toolbar uses standard Tailwind CSS classes. You can change the background, b
 
 ---
 
-## 4. Key Sections to Remember
+## 4. Key Implementation Details
+
+### Text Alignment
+We added `@tiptap/extension-text-align` to support left, center, right, and justify alignment.
+- **Configuration:** It is configured in `useEditor` to apply to `heading` and `paragraph` nodes.
+- **Display:** Alignment works by adding inline CSS styles (e.g., `text-align: center`) to the HTML elements.
+
+### Rendering HTML Content
+Since Tiptap generates HTML, you must render it carefully in your display components:
+- **Dangerously Set Inner HTML:** Use `dangerouslySetInnerHTML={{ __html: content }}` to render the string as actual HTML.
+- **Styling with Prose:** Wrap the rendered content in a `div` with the `prose` class (from `@tailwindcss/typography`) to ensure headings and lists look correct.
+  ```jsx
+  <div className="prose prose-invert lg:prose-xl" dangerouslySetInnerHTML={{ __html: post.content }} />
+  ```
+
+---
+
+## 5. Key Sections to Remember
 
 - **Getting HTML:** `editor.getHTML()` — Used in `onUpdate` to save data.
 - **Checking State:** `editor.isActive('bold')` — Used to toggle button colors.

@@ -12,7 +12,10 @@ const BlogCard = ({post}) => {
             
                     <h2 className="text-2xl font-bold text-gray-50 hover:text-indigo-500">{post.title}</h2>
                 </Link>
-                <p>{post.content}</p>
+                <div 
+                  className="text-gray-300 line-clamp-3 overflow-hidden"
+                  dangerouslySetInnerHTML={{ __html: post.content }}
+                />
 
                 <div className="">tags</div>
             </div>
