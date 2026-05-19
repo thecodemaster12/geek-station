@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import TextEditor from '../components/TextEditor'
+import axios from 'axios'
 
 const CreatePostPage = () => {
   const [title, setTitle] = useState('')
@@ -9,7 +10,22 @@ const CreatePostPage = () => {
     e.preventDefault()
     console.log('Submitting Post:', { title, content })
     // Here you would typically send the data to your API
+    try {
+      axios.post('http://localhost:3001/posts', { title, content })
+    } catch (error) {
+    if (error.response) {
+      console.log(error.response.data);
+      console.log(error.response.status);
+      console.log(error.response.headers);
+    } else if (error.request) {
+      console.log(error.request);
+    } else {
+      console.log('Error', error.message);
+    }
+    }
     alert('Post created successfully! Check console for data.')
+
+
   }
 
   return (
